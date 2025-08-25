@@ -114,13 +114,13 @@ canvas {
 /* Overlay card */
 .card {
   pointer-events: auto;
-  background: rgba(16,20,45,0.9);
+  background: rgba(16,20,45,0.8);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   padding: 18px;
-  width: min(92vw, 520px);
+  width: min(92vw, 500px);
   box-shadow: 0 10px 40px rgba(0,0,0,.4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
   text-align: center;
 }
 
