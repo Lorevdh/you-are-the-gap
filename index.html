@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris but You're the Gaps — Remix Jam</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🧱 Tetris but You're the Gaps</h1>
+    <div class="small">Remix Jam · Flip the Script</div>
+  </header>
+
+  <div class="container">
+    <div class="panel abs">
+      <div class="hud">
+        <div class="chip">Score: <span id="score">0</span></div>
+        <div class="chip">Best: <span id="best">0</span></div>
+        <div class="chip">Level: <span id="level">1</span></div>
+      </div>
+      <canvas id="game" width="500" height="800"></canvas>
+
+      <!-- Start / Pause / Game Over overlays -->
+      <div class="overlay" id="overlay" hidden>
+        <div class="card" id="overlayCard">
+          <h2 class="title" id="ovTitle">Flip the Script</h2>
+          <p class="subtitle" id="ovSubtitle">You are the empty space. Dodge the wall.</p>
+          <div class="btnrow">
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn" class="secondary">Pause (Space)</button>
+          </div>
+          <div class="tips">
+            Move with <span class="kbd">←</span>/<span class="kbd">→</span>. Avoid blocks landing on you.<br/>
+            Mobile: swipe left/right.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>MIT License • Built with HTML5 Canvas</div>
+    <a class="linkish" href="#" id="resetBest">Reset Best</a>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

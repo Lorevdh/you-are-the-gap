@@ -1,0 +1,178 @@
+:root {
+  /* Theme colors (backgrounds, text, accents, block colors) */
+  --bg: #0f1223;
+  --fg: #e6e9f5;
+  --muted: #a6aed6;
+  --accent: #7cf4c4;
+  --danger: #ff6b7a;
+  --block1: #7aa2f7;
+  --block2: #f6bd60;
+  --block3: #84dcc6;
+  --block4: #f28482;
+  --block5: #c3a6ff;
+}
+
+/* Reset box sizing */
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  /* Background gradient for depth */
+  background: radial-gradient(1200px 800px at 80% -20%, #1a1f46 0%, #0f1223 60%);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header - main - footer */
+  gap: 8px;
+}
+
+/* Header + footer layout */
+header, footer {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Title style */
+header h1 { 
+  font-size: 18px; 
+  margin: 0; 
+  letter-spacing: .3px; 
+}
+
+/* Smaller subtitle text */
+header .small { 
+  color: var(--muted); 
+  font-size: 12px; 
+}
+
+/* Main content container with centered panel */
+.container {
+  display: grid;
+  grid-template-columns: 1fr min(92vw, 520px) 1fr; /* center panel */
+  align-items: start;
+  padding: 10px 0 20px;
+}
+
+/* Main panel in the center */
+.panel { grid-column: 2; }
+
+/* Heads-up display (score, best, level) */
+.hud {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+
+/* HUD info chips */
+.chip {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+.chip span { 
+  color: var(--muted); 
+  font-weight: 500; 
+}
+
+/* Main game canvas */
+canvas {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10/16; /* match game board ratio */
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,0.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.0));
+  touch-action: none; /* prevent accidental scrolling */
+  display: block;
+}
+
+/* Overlay screen (Game Over, Pause) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none; /* block mouse unless card is shown */
+}
+
+/* Overlay card */
+.card {
+  pointer-events: auto;
+  background: rgba(16,20,45,0.9);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 18px;
+  width: min(92vw, 520px);
+  box-shadow: 0 10px 40px rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+/* Overlay title + subtitle */
+.title { font-size: 22px; margin: 0 0 6px; }
+.subtitle { color: var(--muted); margin: 0 0 16px; }
+
+/* Button row layout */
+.btnrow { 
+  display: flex; 
+  gap: 10px; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+}
+
+/* Buttons */
+button {
+  border: 0;
+  background: var(--accent);
+  color: #0b1120;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Secondary style button */
+button.secondary { 
+  background: transparent; 
+  color: var(--fg); 
+  border: 1px solid rgba(255,255,255,0.18); 
+}
+
+/* Keyboard hint style */
+.kbd { 
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
+  background: rgba(255,255,255,0.06); 
+  padding: 2px 6px; 
+  border-radius: 6px; 
+}
+
+/* Tips and links */
+.tips { 
+  font-size: 12px; 
+  color: var(--muted); 
+  margin-top: 12px; 
+}
+.linkish { 
+  color: var(--accent); 
+  text-decoration: none; 
+  border-bottom: 1px dashed rgba(124,244,196,.4); 
+}
+
+/* Utility: absolute positioning */
+.abs { position: relative; }
